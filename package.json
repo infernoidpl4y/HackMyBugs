@@ -1,0 +1,7 @@
+{
+  "name": "HackMyBugs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "pwsh ./app.ps1"
+  }
+}
