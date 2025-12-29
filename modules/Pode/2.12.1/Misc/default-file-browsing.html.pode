@@ -1,0 +1,376 @@
+<html lang="en" ; style='background-color: #01b0c4' ;>
+
+<head>
+    <title>File Browser:$($Data.Path)</title>
+    <meta charset='utf-8'>
+
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        /* Add CSS styles here for column widths */
+        .icon {
+            width: 10px;
+            text-align: right;
+            vertical-align: middle;
+        }
+
+        .unixMode,
+        .mode {
+            width: 60px;
+            text-align: left;
+        }
+
+        .user {
+            width: 40px;
+            text-align: right;
+        }
+
+        .group {
+            width: 40px;
+            text-align: right;
+        }
+
+        .DateTime {
+            width: 200px;
+            text-align: right;
+        }
+
+        .size {
+            width: 80px;
+            max-width: 80px;
+            min-width: 80px;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .name {
+            width: 200px;
+            text-align: left;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        span.icon::before {
+            display: inline-block;
+            margin-right: 0.5em;
+        }
+
+        span.icon-folder::before {
+            content: '📁';
+        }
+
+        span.icon-file::before {
+            content: '📄';
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        th {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #pathContainer {
+            font-size: 1.47em;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        #pathContainer a,
+        #pathContainer span {
+            margin-right: -1px;
+        }
+
+        #pathContainer span.separator {
+            margin-right: 0;
+        }
+    </style>
+
+</head>
+<script>
+    let FolderPath = "Folder Path"; //Declare FolderPath global
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var WindowsMode = $($Data.windowsMode);
+        var tableContent = '';
+        const userLang = navigator.language || navigator.userLanguage;
+        const lang = userLang.split('-')[0]; // Extract the language code (e.g., 'en' from 'en-US')
+        // Define variables for translations
+        let FileBrowserTitle = "File Browser";
+        let Mode = "Mode";
+        let CreationTime = "CreationTime";
+        let LastWriteTime = "LastWriteTime";
+        let Size = "Size";
+        let Name = "Name";
+        let UnixMode = "UnixMode";
+        let User = "User";
+        let Group = "Group";
+        switch (lang) {
+            case "fr":
+                FileBrowserTitle = "Explorateur de fichiers";
+                Mode = "Mode";
+                CreationTime = "Heure de création";
+                LastWriteTime = "Dernière modification";
+                Size = "Taille";
+                Name = "Nom";
+                UnixMode = "Mode Unix";
+                User = "Utilisateur";
+                Group = "Groupe";
+                FolderPath = "Chemin du dossier";
+                break;
+            case "es":
+                FileBrowserTitle = "Explorador de archivos";
+                Mode = "Modo";
+                CreationTime = "Hora de creación";
+                LastWriteTime = "Última modificación";
+                Size = "Tamaño";
+                Name = "Nombre";
+                UnixMode = "Modo Unix";
+                User = "Usuario";
+                Group = "Grupo";
+                FolderPath = "Ruta de la carpeta";
+                break;
+            case "ar":
+                FileBrowserTitle = "مستعرض الملفات";
+                Mode = "الوضع";
+                CreationTime = "وقت الإنشاء";
+                LastWriteTime = "آخر تعديل";
+                Size = "الحجم";
+                Name = "الاسم";
+                UnixMode = "وضع يونكس";
+                User = "المستخدم";
+                Group = "المجموعة";
+                FolderPath = "مسار المجلد";
+                break;
+            case "de":
+                FileBrowserTitle = "Dateibrowser";
+                Mode = "Modus";
+                CreationTime = "Erstellungszeit";
+                LastWriteTime = "Letzte Änderung";
+                Size = "Größe";
+                Name = "Name";
+                UnixMode = "Unix-Modus";
+                User = "Benutzer";
+                Group = "Gruppe";
+                FolderPath = "Ordnerpfad";
+                break;
+            case "it":
+                FileBrowserTitle = "Esplora file";
+                Mode = "Modalità";
+                CreationTime = "Ora di creazione";
+                LastWriteTime = "Ultima modifica";
+                Size = "Dimensione";
+                Name = "Nome";
+                UnixMode = "Modalità Unix";
+                User = "Utente";
+                Group = "Gruppo";
+                FolderPath = "Percorso della cartella";
+                break;
+            case "ja":
+                FileBrowserTitle = "ファイルブラウザ";
+                Mode = "モード";
+                CreationTime = "作成時間";
+                LastWriteTime = "最終更新時間";
+                Size = "サイズ";
+                Name = "名前";
+                UnixMode = "Unixモード";
+                User = "ユーザー";
+                Group = "グループ";
+                FolderPath = "フォルダーパス";
+                break;
+            case "ko":
+                FileBrowserTitle = "파일 탐색기";
+                Mode = "모드";
+                CreationTime = "생성 시간";
+                LastWriteTime = "마지막 수정 시간";
+                Size = "크기";
+                Name = "이름";
+                UnixMode = "유닉스 모드";
+                User = "사용자";
+                Group = "그룹";
+                FolderPath = "폴더 경로";
+                break;
+            case "pl":
+                FileBrowserTitle = "Przeglądarka plików";
+                Mode = "Tryb";
+                CreationTime = "Czas utworzenia";
+                LastWriteTime = "Ostatnia modyfikacja";
+                Size = "Rozmiar";
+                Name = "Nazwa";
+                UnixMode = "Tryb Unix";
+                User = "Użytkownik";
+                Group = "Grupa";
+                FolderPath = "Ścieżka folderu";
+                break;
+            case "pt":
+                FileBrowserTitle = "Navegador de arquivos";
+                Mode = "Modo";
+                CreationTime = "Hora de criação";
+                LastWriteTime = "Última modificação";
+                Size = "Tamanho";
+                Name = "Nome";
+                UnixMode = "Modo Unix";
+                User = "Usuário";
+                Group = "Grupo";
+                FolderPath = "Caminho da pasta";
+                break;
+            case "zh":
+                FileBrowserTitle = "文件浏览器";
+                Mode = "模式";
+                CreationTime = "创建时间";
+                LastWriteTime = "最后修改时间";
+                Size = "大小";
+                Name = "名称";
+                UnixMode = "Unix模式";
+                User = "用户";
+                Group = "组";
+                FolderPath = "文件夹路径";
+                break;
+        };
+        if (WindowsMode) {
+            tableContent += '<tr>' +
+                '<th class="mode">' + Mode + '</th>' +
+                '<th class="dateTime">' + CreationTime + '</th>' +
+                '<th class="dateTime">' + LastWriteTime + '</th>' +
+                '<th class="size">' + Size + '</th>' +
+                '<th class="icon"></th>' +
+                '<th class="name">' + Name + '</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th class="mode">----</th>' +
+                '<th class="dateTime">-------------</th>' +
+                '<th class="dateTime">-------------</th>' +
+                '<th class="size">----</th>' +
+                '<th class="icon"></th>' +
+                '<th class="name">----</th>' +
+                '</tr>';
+        } else {
+            tableContent += '<tr>' +
+                '<th class="unixMode">' + UnixMode + '</th>' +
+                '<th class="user">' + User + '</th>' +
+                '<th class="group">' + Group + '</th>' +
+                '<th class="dateTime">' + CreationTime + '</th>' +
+                '<th class="dateTime">' + LastWriteTime + '</th>' +
+                '<th class="size">' + Size + '</th>' +
+                '<th class="icon"></th>' +
+                '<th class="name">' + Name + '</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th class="unixMode">--------</th>' +
+                '<th class="user">----</th>' +
+                '<th class="group">-----</th>' +
+                '<th class="dateTime">-------------</th>' +
+                '<th class="dateTime">-------------</th>' +
+                '<th class="size">----</th>' +
+                '<th class="icon"></th>' +
+                '<th class="name">----</th>' +
+                '</tr>';
+        }
+        // Insert the table content into the table body
+        document.getElementById('tableBody').innerHTML = tableContent;
+    });
+
+    function visualizePathSegments() {
+        const basePath = '$($Data.Path)'; // Your given URL path
+        const segments = basePath.split('/').filter(Boolean); // Split by '/' and remove any empty segments
+        const pathContainer = document.getElementById('pathContainer');
+        pathContainer.innerHTML = ''; // Clear previous content
+
+        // Create the Directory label as a span to keep it inline
+        const directoryLabel = document.createElement('span');
+        directoryLabel.textContent = FolderPath + ': ';
+        pathContainer.appendChild(directoryLabel); // Append the label to the container
+
+        // Make the root a clickable link and add a space after it
+        const rootPath = '$($Data.RootPath)/'; // Adjusted for correct root path
+        const rootLinkSpan = document.createElement('span'); // Create a span to hold the root link and the space
+        const rootLink = document.createElement('a');
+        rootLink.href = rootPath;
+        rootLink.textContent = '/'; // Display text for root
+        rootLinkSpan.appendChild(rootLink);
+        rootLinkSpan.innerHTML += ' '; // Add a space after the root link
+        pathContainer.appendChild(rootLinkSpan);
+
+        segments.forEach((segment, index) => {
+            // Add a separator with spaces around it for better readability
+            if (index > 0) {
+                const separator = document.createElement('span');
+                separator.innerHTML = ' / '; // Added spaces around the separator
+                separator.classList.add('separator'); // Use for specific styling
+                pathContainer.appendChild(separator);
+            } else {
+                // For consistency, add a space before the first segment if there's no separator needed
+                const initialSpace = document.createElement('span');
+                initialSpace.innerHTML = ' ';
+                pathContainer.appendChild(initialSpace);
+            }
+
+            let cumulativePath = rootPath + segments.slice(0, index + 1).join('/');
+
+            if (index < segments.length - 1) {
+                // Create a clickable link for this segment
+                const a = document.createElement('a');
+                a.href = cumulativePath; // Here, the href is the cumulative path
+                a.textContent = segment; // Set text to segment
+                pathContainer.appendChild(a);
+                pathContainer.innerHTML += ' '; // Add a space after the segment link
+            } else {
+                // For the last segment, make it a label instead of a clickable link
+                const lastSegmentLabel = document.createElement('span');
+                lastSegmentLabel.textContent = segment; // Set text to the last segment
+                pathContainer.appendChild(lastSegmentLabel);
+            }
+        });
+    }
+
+    // Automatically visualize the path when the page loads
+    window.onload = visualizePathSegments;
+
+
+</script>
+
+<body style='color: white; '>
+
+    <div>
+        <div id="pathContainer">&nbsp;</div>
+        <div></div>
+        <table>
+            <tbody id="tableBody">
+            </tbody>
+            $($Data.fileContent)
+        </table>
+        <p style='text-align: center;
+            width: 100%;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0px;'>
+            🧡 Powered by <a href='https://badgerati.github.io/Pode/'
+                style='color: wheat; text-decoration: none;'>Pode</a>
+        </p>
+    </div>
+
+</body>
+
+</html>

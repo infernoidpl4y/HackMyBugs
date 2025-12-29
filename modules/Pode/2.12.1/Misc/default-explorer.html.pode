@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <title>$($data.Title)</title>
+    <link href="$($data.DistPath)dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script type="module" src="$($data.DistPath)dist/browser/openapi-explorer.min.js"></script>
+    <!-- Or use a local deployed copy -->
+    <!-- <script type="module" src="node_modules/openapi-explorer/dist/openapi-explorer.min.js"></script> -->
+    <style>
+        html,
+        body {
+            height: 100%
+        }
+
+        :root {
+            --primary: #1D2F3B;
+            --secondary: #FBAF0B;
+            --dark: #000515;
+            --horizon: #DEE2E6;
+            --light: #FFFFFF;
+            --gray: #465865;
+            --info: #FFFFFF;
+            --border: #98A1A9;
+            --embossed: #A9D2E9;
+            --highlight: #DC7100;
+        }
+
+        :openapi-explorer {
+            --primary: #1D2F3B;
+            --secondary: #FBAF0B;
+            --dark: #000515;
+            --horizon: #DEE2E6;
+            --light: #FFFFFF;
+            --gray: #465865;
+            --info: #FFFFFF;
+            --border: #98A1A9;
+            --embossed: #A9D2E9;
+            --highlight: #DC7100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <openapi-explorer spec-url='$($data.OpenApi)' collapse table fill-defaults="true" schema-description-expanded="true"
+        nav-item-spacing="compact" show-components="true" bg-color="#FFFFFF" header-bg-color="#DEE2E6"
+        nav-bg-color="#1D2F3B" text-color="#465865" nav-hover-text-color="#FFFFFF" primary-color="#1D2F3B"
+        secondary-color="#FBAF0B">
+    </openapi-explorer>
+
+</body>
+
+</html>
