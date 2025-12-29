@@ -19,7 +19,7 @@ Start-PodeServer{
             podev="v2.12.1"
             github="https://github.com/InfernoidPl4y"
             portafolio="https://infernoidpl4y.netlify.app"
-            webprojects="https://ip4hub.blogspot.com/"
+            webprojects="https://ip4hub.onrender.com/"
             styleservus="SERVUS Bug Bounty Styles"
             stylevultus="VULTUS Styles"
             version="1.0"
@@ -219,4 +219,5 @@ Start-PodeServer{
        Move-PodeResponseUrl -Url "/bugsai"
     }
     Write-Host "[+]HackMyBugs corriendo en el puerto 8001. Para cerrar pulse Ctrl+C"
+
 }
