@@ -5,6 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-ENV PORT=10000
+ENV PORT=8001
+
 
 CMD ["pwsh", "-File", "/app/app.ps1"]
