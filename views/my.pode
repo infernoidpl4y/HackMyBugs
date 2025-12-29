@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>HackMyBugs</title>
+        <link rel="stylesheet" href="/static/styles/servus_bug_bounty_styles_1_0.css">
+        <link rel="stylesheet" href="/static/styles/vultus_styles_1_0.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-nav">
+                    <a class="nav-link-blue vuln-panel" href="/">HOME</a>
+                    <a class="nav-link-red vuln-panel" href="/blog">BLOG</a>
+                    <a class="nav-link-orange vuln-panel" href="/store">STORE</a>
+                    <a class="nav-link-yellow vuln-panel" href="/bugsai">BUGSAI</a>
+                    <a class="nav-link-purple vuln-panel" href="/about">ABOUT</a>
+                </div>
+                <div class="navbar-brand">
+                    <a class="nav-link" href="/my?id=1"><button class="btn btn-outline">🪲MI PERFIL</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="badge-low vuln-panel">
+                        <h1>Perfil</h1>
+                    </div>
+                </div>
+                <div class="pf-container pf-card">
+                    <img class="pf-avatar pf-avatar-border" src="/static/perfil-img/$($data.User.logo)">
+                    <h1 class="pf-username">$($data.User.username)</h1>
+                    <p class="pf-handle">Rol: $($data.User.rol) Id: $($data.UserId)</p>
+                    <p class="pf-bio">$($data.User.description)</p>
+                    <p>$($data.Msg)</p>
+                    <form class="form-group" method="post" action="/api/c_user">
+                        <label class="form-label vuln-high">Cambiar Username:</label>
+                        <input type="hidden" class="form-control" value="$($data.UserId)" name="id_user">
+                        <input type="hidden" class="form-control" value="$($data.User.rol)" name="rol_user">
+                        <input type="text" class="form-control" value="id" name="id_tuser">
+                        <input type="text" class="form-control" value="username" name="new_name_user">
+                        <input type="submit" class="btn-outline" value="Cambiar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>HackMyBugs</title>
+        <link rel="stylesheet" href="/static/styles/servus_bug_bounty_styles_1_0.css">
+        <link rel="stylesheet" href="/static/styles/vultus_styles_1_0.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-nav">
+                    <a class="nav-link-blue vuln-panel" href="/">HOME</a>
+                    <a class="nav-link-red vuln-panel" href="/blog">BLOG</a>
+                    <a class="nav-link-orange vuln-panel" href="/store">STORE</a>
+                    <a class="nav-link-yellow vuln-panel" href="/bugsai">BUGSAI</a>
+                    <a class="nav-link-purple vuln-panel" href="/about">ABOUT</a>
+                </div>
+                <div class="navbar-brand">
+                    <a class="nav-link" href="/my?id=1"><button class="btn btn-outline">🪲MI PERFIL</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="badge-about vuln-panel">
+                        <h1 title="Aquí no encontraras vulns, solo información :)">About</h1>
+                    </div>  
+                </div>
+                <div class="pf-container pf-card">
+                    <img class="pf-avatar pf-avatar-border" src="/static/perfil-img/ip4.jpg">
+                    <h1 class="pf-username">$($data.Info.creador)</h1>
+                    <p class="pf-handle">$($data.Info.gmail)</p>
+                    <p class="pf-bio"><span class="vuln-critical btn">🕸️Pentester Web</span><span class="vuln-low btn">🪲Bug Bounty Hunter</span><span class="vuln-info btn">💻BackEnd Dev</span></p>
+                    <div class="pf-links">
+                        <a href="$($data.Info.github)" class="pf-link">GitHub</a>
+                        <a href="$($data.Info.portafolio)" class="pf-link">Portafolio</a>
+                        <a href="$($data.Info.webprojects)" class="pf-link">ProjectsWeb</a>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tecnologías</th>
+                                <th>Versiones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td title="Framework Web de PowerShell">$($data.Info.powerby)</td>
+                                <td>$($data.Info.podev)</td>
+                            </tr>
+                            <tr>
+                                <td title="Framework de CSS, disponible en mi GitHub">$($data.Info.styleservus)</td>
+                                <td>v$($data.Info.version)</td>
+                            </tr>
+                            <tr>
+                                <td title="Framework de CSS, disponible en mi GitHub">$($data.Info.stylevultus)</td>
+                                <td>v$($data.Info.version)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>HackMyBugs</title>
+        <link rel="stylesheet" href="/static/styles/servus_bug_bounty_styles_1_0.css">
+        <link rel="stylesheet" href="/static/styles/vultus_styles_1_0.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-nav">
+                    <a class="nav-link-blue vuln-panel" href="/">HOME</a>
+                    <a class="nav-link-red vuln-panel" href="/blog">BLOG</a>
+                    <a class="nav-link-orange vuln-panel" href="/store">STORE</a>
+                    <a class="nav-link-yellow vuln-panel" href="/bugsai">BUGSAI</a>
+                    <a class="nav-link-purple vuln-panel" href="/about">ABOUT</a>
+                </div>
+                <div class="navbar-brand">
+                    <a class="nav-link" href="/my?id=1"><button class="btn btn-outline">🪲MI PERFIL</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="badge-high vuln-panel">
+                        <h1>Store</h1>
+                </div>
+                <div class="card-body">
+                    <div class="badge-high border border-warning rounded-xl vuln-panel">
+                        <form action="/store" method="GET" class="search-container">
+                            <input type="text" placeholder="Buscar..." name="search" class="search-input"><br>
+                            <input type="submit" class=" btn search-btn" value="Buscar">
+                        </form>
+                    </div>
+                    <br>
+                    $(
+                        if($data.id -eq 0){
+                            $msgs="<span style='color: orange;'>Resultados de: $($data.Search)</span>"
+                            $msgs
+                            For($i=1; $i -le $data.Cant; $i++){
+                                $data.Post="<div class='card vuln-panel col-md-6 col-lg-4 mb-3' onclick='mostrarProducto($i)' style='cursor: pointer;'><div class='card-body p-3'><div class='row align-items-center'><div class='col-4'><div class='bg-light rounded p-2 text-center' style='height: 80px; overflow: hidden; display: flex; align-items: center; justify-content: center;'><img src='/static/productos-img/$($data.Products.$i.Foto)' style='width: 100%; height: 100%; object-fit: cover;'></div></div><div class='col-8'><h5 class='font-weight-bold text-primary mb-1' style='font-size: 1rem;'>$($data.Products.$i.Name)</h5><div class='d-flex justify-content-between align-items-center'><span class='badge bg-success font-weight-bold'>$($data.Products.$i.Precio)</span><small class='text-muted'>$($data.Products.$i.Marca)</small></div><div class='mt-2'><span class='badge badge-info mr-1'>$($data.Products.$i.CPU)</span><span class='badge badge-low'>$($data.Products.$i.RAM)</span></div></div></div></div></div>"
+                                $data.Post
+                            }
+                        }elseif($data.id -eq 0.5){
+                            For($i=1; $i -le $data.Cant; $i++){
+                                $data.Post="<div class='card vuln-panel col-md-6 col-lg-4 mb-3' onclick='mostrarProducto($i)' style='cursor: pointer;'><div class='card-body p-3'><div class='row align-items-center'><div class='col-4'><div class='bg-light rounded p-2 text-center' style='height: 80px; overflow: hidden; display: flex; align-items: center; justify-content: center;'><img src='/static/productos-img/$($data.Products.$i.Foto)' style='width: 100%; height: 100%; object-fit: cover;'></div></div><div class='col-8'><h5 class='font-weight-bold text-primary mb-1' style='font-size: 1rem;'>$($data.Products.$i.Name)</h5><div class='d-flex justify-content-between align-items-center'><span class='badge bg-success font-weight-bold'>$($data.Products.$i.Precio)</span><small class='text-muted'>$($data.Products.$i.Marca)</small></div><div class='mt-2'><span class='badge badge-info mr-1'>$($data.Products.$i.CPU)</span><span class='badge badge-low'>$($data.Products.$i.RAM)</span></div></div></div></div></div>"
+                                $data.Post
+                            }
+                        }else{
+                            $msgs="<span style='color: orange;'>Resultados de: $($data.Search)</span>"
+                            $msgs
+                            $i=$data.id
+                            $data.Post="<div class='card vuln-panel col-md-6 col-lg-4 mb-3' onclick='mostrarProducto($i)' style='cursor: pointer;'><div class='card-body p-3'><div class='row align-items-center'><div class='col-4'><div class='bg-light rounded p-2 text-center' style='height: 80px; overflow: hidden; display: flex; align-items: center; justify-content: center;'><img src='/static/productos-img/$($data.Products.$i.Foto)' style='width: 100%; height: 100%; object-fit: cover;'></div></div><div class='col-8'><h5 class='font-weight-bold text-primary mb-1' style='font-size: 1rem;'>$($data.Products.$i.Name)</h5><div class='d-flex justify-content-between align-items-center'><span class='badge bg-success font-weight-bold'>$($data.Products.$i.Precio)</span><small class='text-muted'>$($data.Products.$i.Marca)</small></div><div class='mt-2'><span class='badge badge-info mr-1'>$($data.Products.$i.CPU)</span><span class='badge badge-low'>$($data.Products.$i.RAM)</span></div></div></div></div></div>"
+                            $data.Post
+                        }
+                    )
+                </div>
+            </div>
+        </div>
+        <script>
+            function mostrarProducto(id){
+                window.location.href='/producto/'+id;
+            }
+        </script>
+    </body>
+</html>

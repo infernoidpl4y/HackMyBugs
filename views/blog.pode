@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>HackMyBugs</title>
+        <link rel="stylesheet" href="/static/styles/servus_bug_bounty_styles_1_0.css">
+        <link rel="stylesheet" href="/static/styles/vultus_styles_1_0.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-nav">
+                    <a class="nav-link-blue vuln-panel" href="/">HOME</a>
+                    <a class="nav-link-red vuln-panel" href="/blog">BLOG</a>
+                    <a class="nav-link-orange vuln-panel" href="/store">STORE</a>
+                    <a class="nav-link-yellow vuln-panel" href="/bugsai">BUGSAI</a>
+                    <a class="nav-link-purple vuln-panel" href="/about">ABOUT</a>
+                </div>
+                <div class="navbar-brand">
+                    <a class="nav-link" href="/my?id=1"><button class="btn btn-outline">🪲MI PERFIL</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="badge-critical vuln-panel">
+                        <h1>Blog</h1>
+                </div>
+                <div class="card-body">
+                    <div class="badge-critical border border-danger rounded-xl vuln-panel">
+                        <form action="/api/s_post" method="post" class="form-group">
+                            <h3>Crear un nuevo post</h3>
+                            <label class="form-label text-info">Título:</label>
+                            <input type="text" placeholder="Titulo..." name="title_post" class="form-control"><br>
+                            <label class="form-label text-warning">Contenido:</label>
+                            <input type="text" placeholder="Contenido..." name="content_post" class="form-control">
+                            <input type="submit" class="btn-exploit btn vuln-panel" value="Subir">
+                        </form>
+                    </div><br>
+                    $(For($i=1; $i -le $data.Cant; $i++){
+                        $data.Post="<div class='card border vuln-panel'><div class='card-header'><h2>$($data.Posts.$i.title)</h2><p>$($data.Posts.$i.date.DateTime)</p></div><div class='card-body'><p>$($data.Posts.$i.content)</p></div></div>"
+                        $data.Post
+                    })
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

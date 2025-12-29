@@ -1,0 +1,460 @@
+/* ============================================
+   VULTUS Styles v1.0
+   Autor: InfernoidPl4y
+   ============================================ */
+  
+:root {
+  /* Colores principales */
+  --pf-bg: #ffffff;
+  --pf-text: #1f2937;
+  --pf-muted: #6b7280;
+  --pf-border: #e5e7eb;
+  --pf-primary: #3b82f6;
+  --pf-primary-dark: #2563eb;
+  --pf-secondary: #9ca3af;
+  --pf-success: #10b981;
+  --pf-danger: #ef4444;
+  --pf-warning: #f59e0b;
+  
+  /* Espaciado */
+  --pf-radius: 0.5rem;
+  --pf-radius-lg: 1rem;
+  --pf-spacing: 1rem;
+  --pf-spacing-sm: 0.5rem;
+  --pf-spacing-lg: 1.5rem;
+  --pf-spacing-xl: 2rem;
+  
+  /* Tipografía */
+  --pf-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --pf-font-size: 16px;
+  --pf-line-height: 1.6;
+  
+  /* Avatar */
+  --pf-avatar-size: 96px; /* = 6rem @ 16px, pero fijo en px para previsibilidad */
+  --pf-avatar-border: 2px solid var(--pf-border);
+  
+  /* Cards */
+  --pf-card-bg: #ffffff;
+  --pf-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+  /* Breakpoints */
+  --pf-breakpoint-sm: 576px;
+  --pf-breakpoint-md: 768px;
+  --pf-breakpoint-lg: 992px;
+  --pf-breakpoint-xl: 1200px;
+}
+
+/* ==========================================================================
+   Estilos base y reset (aislados dentro del contenedor)
+   ========================================================================== */
+
+.pf-container,
+.pf-container *,
+.pf-container *::before,
+.pf-container *::after {
+  box-sizing: border-box;
+}
+
+.pf-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: var(--pf-spacing-lg);
+  font-family: var(--pf-font-family);
+  font-size: var(--pf-font-size);
+  line-height: var(--pf-line-height);
+  background-color: var(--pf-bg);
+  color: var(--pf-text);
+}
+
+/* Variantes de ancho */
+.pf-container-wide {
+  max-width: 800px;
+}
+
+.pf-container-narrow {
+  max-width: 480px;
+}
+
+/* ==========================================================================
+   Layout y tarjetas
+   ========================================================================== */
+
+.pf-card {
+  background-color: var(--pf-card-bg);
+  border-radius: var(--pf-radius-lg);
+  box-shadow: var(--pf-card-shadow);
+  padding: var(--pf-spacing-lg);
+  border: 1px solid var(--pf-border);
+  margin-bottom: var(--pf-spacing-lg);
+}
+
+/* ==========================================================================
+   Componentes de perfil
+   ========================================================================== */
+
+/* Avatar */
+.pf-avatar {
+  width: var(--pf-avatar-size);
+  height: var(--pf-avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto var(--pf-spacing);
+}
+
+.pf-avatar-border {
+  border: var(--pf-avatar-border);
+}
+
+.pf-avatar-sm {
+  width: 72px; /* 96 * 0.75 */
+  height: 72px;
+}
+
+.pf-avatar-lg {
+  width: 144px; /* 96 * 1.5 */
+  height: 144px;
+}
+
+/* Encabezado: avatar + texto lado a lado */
+.pf-header {
+  display: flex;
+  align-items: center;
+  gap: var(--pf-spacing);
+  margin-bottom: var(--pf-spacing);
+}
+
+.pf-header-text {
+  flex: 1;
+}
+
+/* Nombre y handle */
+.pf-username {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 var(--pf-spacing-sm);
+  line-height: 1.2;
+}
+
+.pf-handle {
+  color: var(--pf-muted);
+  text-align: center;
+  margin: 0 0 var(--pf-spacing);
+  font-size: 0.95rem;
+}
+
+/* En modo horizontal (desktop), alinear a la izquierda */
+.pf-header .pf-username,
+.pf-header .pf-handle {
+  text-align: left;
+}
+
+/* Biografía */
+.pf-bio {
+  text-align: center;
+  margin: 0 0 var(--pf-spacing-lg);
+  color: var(--pf-text);
+}
+
+/* Estadísticas */
+.pf-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--pf-spacing-xl);
+  margin: var(--pf-spacing-lg) 0;
+  flex-wrap: wrap;
+}
+
+.pf-stat-item {
+  text-align: center;
+  min-width: 70px;
+}
+
+.pf-stat-value {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--pf-primary);
+}
+
+.pf-stat-label {
+  font-size: 0.85rem;
+  color: var(--pf-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Enlaces principales (botones) */
+.pf-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--pf-spacing);
+  margin: var(--pf-spacing-lg) 0;
+}
+
+.pf-link {
+  display: inline-block;
+  background-color: var(--pf-primary);
+  color: white;
+  text-decoration: none;
+  padding: var(--pf-spacing-sm) var(--pf-spacing-lg);
+  border-radius: var(--pf-radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.pf-link:hover {
+  background-color: var(--pf-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pf-link:active {
+  transform: translateY(0);
+}
+
+.pf-link:focus {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 2px;
+}
+
+.pf-link-full {
+  width: 100%;
+}
+
+.pf-link-outline {
+  background-color: transparent;
+  color: var(--pf-primary);
+  border: 2px solid var(--pf-primary);
+}
+
+.pf-link-outline:hover {
+  background-color: var(--pf-primary);
+  color: white;
+}
+
+/* Enlaces de redes sociales */
+.pf-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--pf-spacing-sm);
+  margin: var(--pf-spacing-lg) 0;
+}
+
+.pf-social-link {
+  display: inline-block;
+  padding: var(--pf-spacing-sm) var(--pf-spacing);
+  border-radius: var(--pf-radius);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid var(--pf-border);
+  color: var(--pf-text);
+  background-color: var(--pf-bg);
+}
+
+.pf-social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pf-social-link:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.pf-social-twitter { color: #1da1f2; border-color: #1da1f2; }
+.pf-social-linkedin { color: #0077b5; border-color: #0077b5; }
+.pf-social-github { color: #333; border-color: #333; }
+.pf-social-dribbble { color: #ea4c89; border-color: #ea4c89; }
+
+/* Habilidades */
+.pf-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pf-spacing-sm);
+  margin: var(--pf-spacing) 0 var(--pf-spacing-lg);
+}
+
+.pf-skill {
+  display: inline-block;
+  padding: var(--pf-spacing-sm) var(--pf-spacing);
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--pf-primary);
+  border-radius: var(--pf-radius);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Experiencia */
+.pf-experience {
+  margin: var(--pf-spacing) 0 var(--pf-spacing-lg);
+}
+
+.pf-experience-item {
+  margin-bottom: var(--pf-spacing);
+  padding-bottom: var(--pf-spacing);
+  border-bottom: 1px solid var(--pf-border);
+}
+
+.pf-experience-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pf-experience-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.pf-experience-company {
+  color: var(--pf-muted);
+  font-size: 0.9rem;
+}
+
+/* Títulos de sección */
+.pf-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: var(--pf-spacing-lg) 0 var(--pf-spacing);
+  padding-bottom: var(--pf-spacing-sm);
+  border-bottom: 2px solid var(--pf-border);
+}
+
+/* Footer */
+.pf-footer {
+  text-align: center;
+  margin-top: var(--pf-spacing-xl);
+  font-size: 0.85rem;
+  color: var(--pf-muted);
+  padding-top: var(--pf-spacing);
+  border-top: 1px solid var(--pf-border);
+}
+
+/* ==========================================================================
+   Utilidades
+   ========================================================================== */
+
+.pf-text-center { text-align: center; }
+.pf-text-left   { text-align: left; }
+.pf-text-right  { text-align: right; }
+
+.pf-mt-0 { margin-top: 0; }
+.pf-mb-0 { margin-bottom: 0; }
+.pf-mt-1 { margin-top: var(--pf-spacing-sm); }
+.pf-mb-1 { margin-bottom: var(--pf-spacing-sm); }
+.pf-mt-2 { margin-top: var(--pf-spacing); }
+.pf-mb-2 { margin-bottom: var(--pf-spacing); }
+.pf-mt-3 { margin-top: var(--pf-spacing-lg); }
+.pf-mb-3 { margin-bottom: var(--pf-spacing-lg); }
+.pf-mt-4 { margin-top: var(--pf-spacing-xl); }
+.pf-mb-4 { margin-bottom: var(--pf-spacing-xl); }
+
+.pf-pt-0 { padding-top: 0; }
+.pf-pb-0 { padding-bottom: 0; }
+.pf-pt-1 { padding-top: var(--pf-spacing-sm); }
+.pf-pb-1 { padding-bottom: var(--pf-spacing-sm); }
+.pf-pt-2 { padding-top: var(--pf-spacing); }
+.pf-pb-2 { padding-bottom: var(--pf-spacing); }
+.pf-pt-3 { padding-top: var(--pf-spacing-lg); }
+.pf-pb-3 { padding-bottom: var(--pf-spacing-lg); }
+.pf-pt-4 { padding-top: var(--pf-spacing-xl); }
+.pf-pb-4 { padding-bottom: var(--pf-spacing-xl); }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .pf-container {
+    padding: var(--pf-spacing);
+    margin: 1rem auto;
+  }
+  
+  .pf-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .pf-username {
+    font-size: 1.5rem;
+  }
+  
+  .pf-stats {
+    gap: var(--pf-spacing);
+  }
+  
+  .pf-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .pf-header .pf-username,
+  .pf-header .pf-handle {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-container {
+    padding: var(--pf-spacing-sm);
+  }
+  
+  .pf-avatar {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .pf-stats {
+    gap: var(--pf-spacing-sm);
+  }
+  
+  .pf-stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .pf-link {
+    width: 100%;
+  }
+  
+  .pf-links {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   Temas alternativos
+   ========================================================================== */
+
+.pf-theme-dark {
+  --pf-bg: #1f2937;
+  --pf-text: #f9fafb;
+  --pf-muted: #9ca3af;
+  --pf-border: #374151;
+  --pf-primary: #60a5fa;
+  --pf-primary-dark: #3b82f6;
+  --pf-card-bg: #374151;
+  --pf-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pf-theme-purple {
+  --pf-primary: #8b5cf6;
+  --pf-primary-dark: #7c3aed;
+  --pf-bg: #faf5ff;
+  --pf-border: #e9d5ff;
+}
+
+.pf-theme-green {
+  --pf-primary: #10b981;
+  --pf-primary-dark: #059669;
+  --pf-bg: #f0fdfa;
+  --pf-border: #a7f3d0;
+}

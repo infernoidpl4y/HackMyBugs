@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>HackMyBugs</title>
+        <link rel="stylesheet" href="/static/styles/servus_bug_bounty_styles_1_0.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-nav">
+                    <a class="nav-link-blue vuln-panel" href="/">HOME</a>
+                    <a class="nav-link-red vuln-panel" href="/blog">BLOG</a>
+                    <a class="nav-link-orange vuln-panel" href="/store">STORE</a>
+                    <a class="nav-link-yellow vuln-panel" href="/bugsai">BUGSAI</a>
+                    <a class="nav-link-purple vuln-panel" href="/about">ABOUT</a>
+                </div>
+                <div class="navbar-brand">
+                    <a class="nav-link" href="/my?id=1"><button class="btn btn-outline">🪲MI PERFIL</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="badge-info vuln-panel">
+                        <h1 title="Aquí no encontraras vulns, solo información :)">HackMyBugs</h1>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2>
+                        HackMyBugs, es una app web vulnerable para practicar tus conocimientos en Pentesting
+                        Web.<br>Así como tu análisis lógico sobre los sistemas y estructuras web.
+                    </h2><br><br>
+                    <h3>Algunas de las vulnerabilidades presentes en HackMyBugs:</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Severidad</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Command injection</td>
+                                <td><span class="badge badge-critical">Critical</span></td>
+                                <td>Ejecución de comandos del sistema operativo.</td>
+                            </tr>
+                            <tr>
+                                <td>Privilege Escalation</td>
+                                <td><span class="badge badge-critical">Critical</span></td>
+                                <td>Elevación no autorizada de privilegios.</td>
+                            </tr>
+                            <tr>
+                                <td>XSS stored</td>
+                                <td><span class="badge badge-critical">Critical</span></td>
+                                <td>Scripts maliciosos almacenados y ejecutados por otros usuarios.</td>
+                            </tr>
+                            <tr>
+                                <td>Broken Access Control</td>
+                                <td><span class="badge badge-high">High</span>-<span class="badge badge-critical">Critical</span></td>
+                                <td>Fallos en controles de acceso.</td>
+                            </tr>
+                            <tr>
+                                <td>XSS reflected</td>
+                                <td><span class="badge badge-high">High</span></td>
+                                <td>Scripts reflejados inmediatamente en la respuesta.</td>
+                            </tr>
+                            <tr>
+                                <td>CSRF</td>
+                                <td><span class="badge badge-high">High</span></td>
+                                <td>Ejecutar acciones no autorizadas en nombre de usuarios autenticados.</td>
+                            </tr>
+                            <tr>
+                                <td>IDOR</td>
+                                <td><span class="badge badge-high">Medium-High</span></td>
+                                <td>Acceso no autorizado a objetos/data manipulando referencias</td>
+                            </tr>
+                            <tr>
+                                <td>LFI</td>
+                                <td><span class="badge badge-medium">Medium</span></td>
+                                <td>Inclusión de archivos locales.</td>
+                            </tr>
+                            <tr>
+                                <td>Path traversal</td>
+                                <td><span class="badge badge-medium">Medium</span></td>
+                                <td>Acceso a directorios fuera del raíz web mediante ../.</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitive Data Exposure</td>
+                                <td><span class="badge badge-low">Variable</span></td>
+                                <td>Exposición de información critica, su impacto depende de la info</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <span>Mensaje del creador: Espero que este proyecto les ayude a aprender más sobre el Pentesting web. Todas las vulns se pueden encontrar
+                        haciendo pruebas de Caja Negra.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

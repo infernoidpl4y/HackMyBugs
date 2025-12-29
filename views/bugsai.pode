@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>HackMyBugs</title>
+        <link rel="stylesheet" href="/static/styles/servus_bug_bounty_styles_1_0.css">
+        <link rel="stylesheet" href="/static/styles/vultus_styles_1_0.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="navbar-nav">
+                    <a class="nav-link-blue vuln-panel" href="/">HOME</a>
+                    <a class="nav-link-red vuln-panel" href="/blog">BLOG</a>
+                    <a class="nav-link-orange vuln-panel" href="/store">STORE</a>
+                    <a class="nav-link-yellow vuln-panel" href="/bugsai">BUGSAI</a>
+                    <a class="nav-link-purple vuln-panel" href="/about">ABOUT</a>
+                </div>
+                <div class="navbar-brand">
+                    <a class="nav-link" href="/my?id=1"><button class="btn btn-outline">🪲MI PERFIL</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="badge-medium vuln-panel">
+                        <h1>BugsAI</h1>
+                </div>
+                <div class="card-body">
+                    <div class="badge-medium border border-proccess rounded-xl vuln-panel">
+                        <form action="/api/c_ai" method="post" class="form-group">
+                            <h3>Chat</h3>
+                            <label class="form-label text-info">
+                                $(for($i=1; $i -le $data.Cant; $i++){
+                                    if($data.Message.$i.user -eq "BugsAI"){
+                                        $text="<p class='vuln-medium'>~>$($data.Message.$i.user): $($data.Message.$i.text)</p>"
+                                    }else{
+                                        $text="<p class='vuln-info'>~>$($data.Message.$i.user): $($data.Message.$i.text)</p>"
+                                    }
+                                    $text
+                                })
+                            </label>
+                            <input type="text" placeholder="Hola..." name="content_submit" class="form-control">
+                            <input type="submit" class="btn-stop btn vuln-panel" value="Subir">
+                        </form>
+                    </div><br>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
