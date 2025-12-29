@@ -1,6 +1,0 @@
-{
-  "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "apt-get update && apt-get install -y powershell"
-  }
-}
