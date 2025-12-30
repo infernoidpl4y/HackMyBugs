@@ -1,7 +1,7 @@
 ﻿Import-Module ".\modules\Pode\2.12.1\Pode.psd1"
 
 Start-PodeServer{
-    Add-PodeEndpoint -Address 0.0.0.0 -Port 8001 -Protocol Http
+    Add-PodeEndpoint -Address localhost -Port 8001 -Protocol Http
     Set-PodeViewEngine -Type Pode -Extension '.pode'
 
     Write-Host "[*]Iniciando HackMyBugs en el puerto 8001..."
@@ -221,3 +221,4 @@ Start-PodeServer{
     Write-Host "[+]HackMyBugs corriendo en el puerto 8001. Para cerrar pulse Ctrl+C"
 
 }
+
