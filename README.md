@@ -13,8 +13,14 @@ docker run -d -p 8001:8080 --name hackmybugs-container hackmybugs
 ```
 ### PowerShell(Como Admin):
 ```powershell
-.\app.ps1 or .\app.exe
+.\app.ps1
+   O
+.\app.exe
 ```
+
+** Edita config.ini para cambiar IP o Puerto **
+
+
 
 ## Algunas de las vulnerabilidades presentes en HackMyBugs:
 | Tipo | Severidad | Descripción |
