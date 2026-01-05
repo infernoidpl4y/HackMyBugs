@@ -1,31 +1,8 @@
 <img src="/static/logoHMB.png" alt="Logo" style="height: 10cm; width: 100%; object-fit: cover;">
 
 HackMyBugs, es una app web vulnerable para practicar tus conocimientos en Pentesting Web. Así como tu análisis lógico sobre los sistemas y estructuras web. [Descargar](https://github.com/infernoidpl4y/HackMyBugs/releases/tag/Updates)
-<p style="
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #2d3436;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-top: 3px solid #0984e3;
-    margin: 15px 0;
-    position: relative;
-">
-    <span style="
-        position: absolute;
-        top: -8px;
-        left: 20px;
-        background: #0984e3;
-        color: white;
-        padding: 4px 12px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: bold;
-    ">DESCRIPCIÓN</span>
-    Tu texto de descripción con estilo de tarjeta elegante.
-</p>
+
+<p style=" font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; color: #2d3436; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 3px solid #0984e3; margin: 15px 0; position: relative; "> <span style=" position: absolute; top: -8px; left: 20px; background: #0984e3; color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; ">DESCRIPCIÓN</span> Tu texto de descripción con estilo de tarjeta elegante. </p>
 ## Como instalar:
 
 ### Docker:
