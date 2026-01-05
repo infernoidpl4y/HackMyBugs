@@ -1,6 +1,6 @@
 <img src="/static/logoHMB.png" alt="Logo" style="height: 10cm; width: 100%; object-fit: cover;">
 
-HackMyBugs, es una app web vulnerable para practicar tus conocimientos en Pentesting Web. Así como tu análisis lógico sobre los sistemas y estructuras web. [Descargar](https://github.com/infernoidpl4y/HackMyBugs/releases/tag/Updates)
+<p style="background-color: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2);">HackMyBugs, es una app web vulnerable para practicar tus conocimientos en Pentesting Web. Así como tu análisis lógico sobre los sistemas y estructuras web. [Descargar](https://github.com/infernoidpl4y/HackMyBugs/releases/tag/Updates)</p>
 
 ## Como instalar:
 
