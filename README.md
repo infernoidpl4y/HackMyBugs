@@ -18,7 +18,7 @@ docker run -d -p 8001:8080 --name hackmybugs-container hackmybugs
 .\app.exe
 ```
 
-** Edita config.ini para cambiar IP o Puerto **
+**Edita config.ini para cambiar IP o Puerto**
 
 
 
