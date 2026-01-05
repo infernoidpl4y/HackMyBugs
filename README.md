@@ -1,4 +1,4 @@
-<img src="/static/logoHMB.png" alt="Logo" style="height: 5cm; width: 100%; object-fit: cover;">
+<img src="/static/logoHMB.png" alt="Logo" style="height: 10cm; width: 100%; object-fit: cover;">
 # HackMyBugs
 HackMyBugs, es una app web vulnerable para practicar tus conocimientos en Pentesting Web. Así como tu análisis lógico sobre los sistemas y estructuras web. [Descargar](https://github.com/infernoidpl4y/HackMyBugs/releases/tag/Updates)
 
