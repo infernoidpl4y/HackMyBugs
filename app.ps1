@@ -1,7 +1,14 @@
 ﻿Import-Module ".\modules\Pode\2.12.1\Pode.psd1"
+Import-Module ".\modules\PsIni\4.0.1\PSIni.psd1"
+
+$FileConfig=Import-Ini -Path ".\config.ini"
+$Config=@{
+    Address=$FileConfig['Server']['Address']
+    Port=$FileConfig['Server']['Port']
+}
 
 Start-PodeServer{
-    Add-PodeEndpoint -Address localhost -Port 8001 -Protocol Http
+    Add-PodeEndpoint -Address $Config.Address -Port $Config.Port -Protocol Http
     Set-PodeViewEngine -Type Pode -Extension '.pode'
 
     Write-Host "[*]Iniciando HackMyBugs en el puerto 8001..."
@@ -219,6 +226,4 @@ Start-PodeServer{
        Move-PodeResponseUrl -Url "/bugsai"
     }
     Write-Host "[+]HackMyBugs corriendo en el puerto 8001. Para cerrar pulse Ctrl+C"
-
 }
-
